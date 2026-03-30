@@ -660,3 +660,51 @@ ul {
   margin: clamp(2rem, 5vw, 4rem) auto 0 auto; /* Zentriert & Abstand nach oben */
   padding-inline: var(--gap); /* Gleiche Seitenabstände wie der Rest */
 }
+.oeffnungszeiten {
+  background-color: #1a1a1a;
+  padding: 60px 20px;
+}
+
+.oeffnungszeiten__container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.oeffnungszeiten__titel {
+  color: #F5FF40;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.oeffnungszeiten__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.oeffnungszeiten__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #333;
+}
+
+.oeffnungszeiten__tag {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.oeffnungszeiten__zeit {
+  color: #F5FF40;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.oeffnungszeiten__hinweis {
+  color: #888888;
+  font-size: 0.875rem;
+  margin-top: 24px;
+}
