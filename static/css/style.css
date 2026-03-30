@@ -10,8 +10,8 @@
 :root {
   --color-primary:    #0D0D0D;
   --color-accent:     #F5FF40;
-  --color-background: #F7F7F7;
-  --color-text:       #1A1A1A;
+  --color-background: #0D0D0D;
+  --color-text:       #E0E0E0;
   --color-subtle:     #E0E0E0;
 
   --font-family: 'Inter', sans-serif;
@@ -103,20 +103,20 @@ ul {
 .btn--primary:focus-visible {
   background-color: var(--color-primary);
   color: var(--color-accent);
-  border-color: var(--color-primary);
+  border-color: var(--color-accent);
 }
 
 /* Ghost: transparent mit Rahmen */
 .btn--ghost {
   background-color: transparent;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  color: var(--color-subtle);
+  border-color: var(--color-subtle);
 }
 
 .btn--ghost:hover,
 .btn--ghost:focus-visible {
-  background-color: var(--color-primary);
-  color: var(--color-background);
+  background-color: var(--color-subtle);
+  color: var(--color-primary);
 }
 
 
@@ -142,7 +142,7 @@ ul {
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-background);
+  color: #fff;
 }
 
 .navbar__logo--accent {
@@ -160,7 +160,7 @@ ul {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-background);
+  color: #fff;
   padding-block: 0.25rem;
   border-bottom: 2px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
@@ -194,7 +194,7 @@ ul {
   display: block;
   width: 100%;
   height: 2px;
-  background-color: var(--color-background);
+  background-color: #fff;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
@@ -272,15 +272,12 @@ ul {
   line-height: 1.05;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-subtle);
 }
 
 .feature__headline .accent {
   display: block;
   color: var(--color-accent);
-  /* Akzentfarbe auf dunklem Hintergrund lesbar machen -->
-     Hier Textschatten für Lesbarkeit auf hellem BG weglassen */
-  -webkit-text-stroke: 1.5px var(--color-primary);
 }
 
 .feature__text {
@@ -303,9 +300,9 @@ ul {
 .grid-card {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--color-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
-  background-color: #fff;
+  background-color: #1A1A1A;
 }
 
 .grid-card__image-wrap {
@@ -338,7 +335,7 @@ ul {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--color-primary);
+  color: var(--color-subtle);
 }
 
 .grid-card__text {
@@ -458,7 +455,7 @@ ul {
    ------------------------------------------------------------ */
 .footer {
   background-color: var(--color-primary);
-  color: var(--color-background);
+  color: var(--color-subtle);
   border-top: 2px solid var(--color-accent);
   margin-top: clamp(3rem, 6vw, 5rem);
 }
@@ -497,7 +494,7 @@ ul {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-background);
+  color: var(--color-subtle);
   border-bottom: 1px solid transparent;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
