@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <!-- Background -->
+  <rect width="400" height="120" fill="#0D0D0D"/>
+
+  <!-- Accent bar left -->
+  <rect x="0" y="0" width="6" height="120" fill="#F5FF40"/>
+
+  <!-- Icon: Abstract dumbbell / lightning bolt -->
+  <g transform="translate(32, 16)">
+    <!-- Top block -->
+    <rect x="0" y="0" width="22" height="32" fill="#F5FF40"/>
+    <!-- Diagonal connector -->
+    <polygon points="22,24 22,32 6,56 6,88 0,88 0,56 16,32 16,24" fill="#F5FF40"/>
+    <!-- Bottom block -->
+    <rect x="0" y="56" width="22" height="32" fill="#F5FF40"/>
+  </g>
+
+  <!-- Text: SUPER -->
+  <text x="76" y="62" font-family="Inter, Helvetica, Arial, sans-serif" font-weight="900" font-size="42" letter-spacing="-1" fill="#F5FF40" text-anchor="start">SUPER</text>
+
+  <!-- Text: GYM -->
+  <text x="247" y="62" font-family="Inter, Helvetica, Arial, sans-serif" font-weight="900" font-size="42" letter-spacing="-1" fill="#F7F7F7" text-anchor="start">GYM</text>
+
+  <!-- Tagline -->
+  <text x="76" y="86" font-family="Inter, Helvetica, Arial, sans-serif" font-weight="400" font-size="11" letter-spacing="4" fill="#F7F7F7" opacity="0.5" text-anchor="start">HAMBURG</text>
+
+  <!-- Bottom accent line -->
+  <rect x="76" y="96" width="60" height="2" fill="#F5FF40"/>
+</svg>
