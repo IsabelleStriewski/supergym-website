@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 
   <style>
-    /* Spezifische Karussell-Styles (Breite wird jetzt über style.css geregelt) */
+    /* Spezifische Karussell-Styles */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --black:     #0D0D0D;
@@ -259,7 +259,6 @@
     const DELAY = 5000;
     let cur = 0, timer;
 
-    // Build dots
     for (let i = 0; i < N; i++) {
       const d = document.createElement('button');
       d.className = 'dot' + (i===0?' active':'');
@@ -322,50 +321,81 @@
   </main>
 
   <footer class="footer">
-    <div class="footer__inner" style="align-items: flex-start; justify-content: space-between;">
-      
-      <div class="footer__left" style="display: flex; flex-direction: column; gap: 1.5rem;">
-        <div class="footer__brand">
-          SUPER<span class="footer__brand--accent">GYM</span>
-        </div>
-        <nav class="footer__nav" style="flex-wrap: wrap;">
-          <a href="{{ url_for('index') }}" class="footer__link">Home</a>
-          <a href="{{ url_for('kurse') }}" class="footer__link">Kurse</a>
-          <a href="{{ url_for('ueber_uns') }}" class="footer__link">Über uns</a>
-        </nav>
-        <div class="footer__legal">
-          <a href="{{ url_for('impressum') }}" class="footer__link">Impressum</a>
-          <a href="{{ url_for('datenschutz') }}" class="footer__link">Datenschutz</a>
-        </div>
+    <div class="footer__inner">
+      <div class="footer__brand">
+        SUPER<span class="footer__brand--accent">GYM</span>
       </div>
-
-      <div class="footer-form-wrap">
-        <h3 class="footer-form__title">Frag uns was!</h3>
-        
-        <form id="footerContactForm" class="footer-form">
-          <input type="text" id="name" class="footer-form__input" placeholder="Dein Name" required />
-          <input type="email" id="email" class="footer-form__input" placeholder="Deine E-Mail" required />
-          <textarea id="message" class="footer-form__textarea" placeholder="Deine Nachricht" required></textarea>
-          
-          <button type="submit" class="btn btn--primary" style="width: 100%; margin-top: 0.5rem;">Nachricht Senden</button>
-        </form>
-        
-        <div id="footerSuccessMsg" class="footer-form__success">
-          Danke! Wir melden uns asap. 🦾
-        </div>
+      <nav class="footer__nav">
+        <a href="{{ url_for('index') }}" class="footer__link">Home</a>
+        <a href="{{ url_for('kurse') }}" class="footer__link">Kurse</a>
+        <a href="{{ url_for('ueber_uns') }}" class="footer__link">Über uns</a>
+      </nav>
+      <div class="footer__legal">
+        <button type="button" class="footer__link" id="openContactModal">Kontakt</button>
+        <a href="{{ url_for('impressum') }}" class="footer__link">Impressum</a>
+        <a href="{{ url_for('datenschutz') }}" class="footer__link">Datenschutz</a>
       </div>
-
     </div>
     <div class="footer__copy">
       © 2026 SuperGym Hamburg
     </div>
   </footer>
 
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-box">
+      <button class="modal-close" id="closeContactModal">&times;</button>
+      
+      <div id="modalFormContainer">
+        <h3 class="modal-title">Schreib uns</h3>
+        <form id="modalContactForm" class="modal-form">
+          <input type="text" id="modalName" class="modal-form__input" placeholder="Dein Name" required />
+          <input type="email" id="modalEmail" class="modal-form__input" placeholder="Deine E-Mail" required />
+          <textarea id="modalMessage" class="modal-form__textarea" placeholder="Deine Nachricht" required></textarea>
+          <button type="submit" class="btn btn--primary" style="margin-top: 0.5rem;">Nachricht Senden</button>
+        </form>
+      </div>
+
+      <div id="modalSuccessMsg" class="modal-success">
+        <h3>Nachricht versendet!</h3>
+        <p>Danke für deine Anfrage. Wir melden uns in Kürze bei dir. 🦾</p>
+      </div>
+    </div>
+  </div>
+
   <script>
-    document.getElementById('footerContactForm').addEventListener('submit', function(event) {
-      event.preventDefault(); 
-      this.style.display = 'none'; 
-      document.getElementById('footerSuccessMsg').style.display = 'block'; 
+    const modal = document.getElementById('contactModal');
+    const btnOpen = document.getElementById('openContactModal');
+    const btnClose = document.getElementById('closeContactModal');
+    const formContainer = document.getElementById('modalFormContainer');
+    const successMsg = document.getElementById('modalSuccessMsg');
+    const contactForm = document.getElementById('modalContactForm');
+
+    // 1. Modal Öffnen (beim Klick auf "Kontakt")
+    btnOpen.addEventListener('click', () => {
+      modal.classList.add('is-open');
+      // Setzt das Formular zurück, falls man es ein zweites Mal öffnet
+      formContainer.style.display = 'block';
+      successMsg.style.display = 'none';
+      contactForm.reset();
+    });
+
+    // 2. Modal Schließen (beim Klick auf das X)
+    btnClose.addEventListener('click', () => {
+      modal.classList.remove('is-open');
+    });
+
+    // 3. Modal Schließen (beim Klick auf den dunklen Hintergrund)
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('is-open');
+      }
+    });
+
+    // 4. Absenden (Versteckt das Formular und zeigt die Erfolgsmeldung)
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault(); 
+      formContainer.style.display = 'none';
+      successMsg.style.display = 'block';
     });
   </script>
 
