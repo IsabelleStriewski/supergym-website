@@ -330,10 +330,9 @@
         <a href="{{ url_for('index') }}" class="footer__link">Home</a>
         <a href="{{ url_for('kurse') }}" class="footer__link">Kurse</a>
         <a href="{{ url_for('ueber_uns') }}" class="footer__link">Über uns</a>
-        <li><a href="{{ url_for('impressum') }}" class="navbar__link {% if request.endpoint == 'impressum' %}navbar__link--active{% endif %}">Impressum</a></li>
       </nav>
-      <div class="footer__legal"><li><a href="{{ url_for('impressum') }}" class="navbar__link {% if request.endpoint == 'impressum' %}navbar__link--active{% endif %}">Impressum</a></li>
-        <a href="#" class="footer__link">Impressum</a>
+      <div class="footer__legal">
+        <a href="{{ url_for('impressum') }}" class="footer__link">Impressum</a>
         <a href="{{ url_for('datenschutz') }}" class="footer__link">Datenschutz</a>
       </div>
     </div>
