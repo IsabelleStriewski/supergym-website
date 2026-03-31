@@ -14,6 +14,9 @@ def kurse():
 
 
 @app.route("/ueber-uns")
+@app.route('/impressum')
+def impressum():
+    return render_template('impressum.html')
 @app.route("/about")
 def ueber_uns():
     return render_template("about.html")
