@@ -805,4 +805,44 @@ ul {
   .history__timeline {
     padding-left: 1.25rem;
   }
+}/* ============================================================
+   IMPRESSUM
+   ============================================================ */
+.impressum {
+  background-color: #1a1a1a;
+  padding: 60px 20px;
+  min-height: 70vh;
+}
+
+.impressum__container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.impressum__titel {
+  color: #F5FF40;
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.impressum__block {
+  margin-bottom: 32px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 24px;
+}
+
+.impressum__block h2 {
+  color: #F5FF40;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.impressum__block p {
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.8;
 }
